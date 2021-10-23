@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { ChangeEvent, useCallback, useRef, useState } from "react";
+import QRCode from "react-qr-code";
+import { QrContainer, Input, Button } from "./components";
 
 function App() {
+  const [value, setValue] = useState<string>("");
+  const qrRef = useRef<HTMLDivElement>(null);
+
+  const inputChangeHandler = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => setValue(event.target.value),
+    []
+  );
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <QrContainer ref={qrRef}>
+        <QRCode value={value} />
+      </QrContainer>
+      <Input value={value} onChange={inputChangeHandler} />
+      <Button componentRef={qrRef}>Salva QR!</Button>
+    </>
   );
 }
 
