@@ -1,8 +1,9 @@
 .button {
   margin-left: 20px;
   margin-top: 12px;
-  font-size: 24px;
+  font-size: 32px;
   border-radius: 4px;
+  padding: 18px;
   outline: none;
   box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.2532);
   font-weight: bold;
@@ -10,4 +11,15 @@
   border: 1px solid darkorange;
   color: white;
   cursor: pointer;
+  transition: all 0.38s ease-in-out;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.button:hover {
+  background-color: darkorange;
+  border: 1px solid orange;
 }

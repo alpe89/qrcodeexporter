@@ -11,13 +11,31 @@ function App() {
     []
   );
   return (
-    <>
+    <main
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+      }}
+    >
+      <h1
+        style={{
+          marginTop: "8px",
+          fontSize: "48px",
+          textShadow: "0 0 2px rgba(0, 0, 0, 0.3)",
+        }}
+      >
+        QR Code Generator!
+      </h1>
+      <Input value={value} onChange={inputChangeHandler} />
       <QrContainer ref={qrRef}>
         <QRCode value={value} />
       </QrContainer>
-      <Input value={value} onChange={inputChangeHandler} />
-      <Button componentRef={qrRef}>Salva QR!</Button>
-    </>
+      <Button componentRef={qrRef} currentText={value}>
+        Download QR!
+      </Button>
+    </main>
   );
 }
 

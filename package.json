@@ -1,6 +1,6 @@
 {
   "name": "qr-generator",
-  "version": "1.0.0",
+  "version": "2.1.0",
   "private": true,
   "dependencies": {
     "react": "^17.0.2",
